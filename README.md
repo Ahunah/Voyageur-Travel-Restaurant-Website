@@ -1,6 +1,4 @@
----
 
-````markdown
 # 🌍 Voyageur – Travel & Restaurant Website
 
 A modern, responsive travel and restaurant web platform built using HTML, CSS, and JavaScript.  
