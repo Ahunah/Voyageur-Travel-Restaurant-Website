@@ -34,7 +34,7 @@ Voyageur delivers a luxury UI experience with interactive features for exploring
 
 > Add your screenshots here (recommended)
 
-```md
+
 [Home Page]<img width="1898" height="1037" alt="image" src="https://github.com/user-attachments/assets/5769e5af-dd75-46ee-a36f-2ded2ed6c3ea" />
 
 [Destinations]<img width="1868" height="1013" alt="image" src="https://github.com/user-attachments/assets/e14cacd0-3df0-4101-9f0c-8a742441d435" />
@@ -44,8 +44,6 @@ Voyageur delivers a luxury UI experience with interactive features for exploring
 [Map View]<img width="1875" height="1013" alt="image" src="https://github.com/user-attachments/assets/bde804fe-5200-4b5e-b235-2065acc4a7f5" />
 <img width="1852" height="1033" alt="image" src="https://github.com/user-attachments/assets/5b2ef340-1a39-4458-ae78-17002a81f54d" />
 
-
-````
 
 ---
 
