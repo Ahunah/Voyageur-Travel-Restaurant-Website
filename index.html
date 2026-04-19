@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyageur — Where Every Journey Feeds the Soul</title>
+  <meta name="description" content="Discover extraordinary travel destinations and restaurant experiences curated for the discerning explorer." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet Maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SKIP LINK -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+  <header class="nav-header" id="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Voyageur Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Voyageur</span>
+      </a>
+
+      <ul class="nav-links" role="list" id="nav-links">
+        <li><a href="#destinations" class="nav-link" data-section="destinations">Destinations</a></li>
+        <li><a href="#restaurants" class="nav-link" data-section="restaurants">Dining</a></li>
+        <li><a href="#gallery" class="nav-link" data-section="gallery">Gallery</a></li>
+        <li><a href="#reviews" class="nav-link" data-section="reviews">Reviews</a></li>
+        <li><a href="#map" class="nav-link" data-section="map">Map</a></li>
+        <li><a href="#booking" class="nav-link nav-cta" data-section="booking">Book Now</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon sun" aria-hidden="true">☀</span>
+          <span class="theme-icon moon" aria-hidden="true">☽</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-label="Featured destinations slideshow">
+    <div class="hero-slider" id="hero-slider" role="region" aria-roledescription="carousel" aria-label="Hero slider">
+
+      <div class="slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Switzerland</p>
+          <h1 class="slide-title">Alpine <em>Serenity</em></h1>
+          <p class="slide-sub">Where snow-capped peaks meet crystalline lakes</p>
+          <a href="#destinations" class="btn btn-light">Explore</a>
+        </div>
+      </div>
+
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Paris, France</p>
+          <h1 class="slide-title">Art of <em>Dining</em></h1>
+          <p class="slide-sub">Michelin-starred experiences in the City of Light</p>
+          <a href="#restaurants" class="btn btn-light">Discover</a>
+        </div>
+      </div>
+
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Santorini, Greece</p>
+          <h1 class="slide-title">Aegean <em>Dreams</em></h1>
+          <p class="slide-sub">Clifftop villas overlooking the caldera at sunset</p>
+          <a href="#booking" class="btn btn-light">Book Stay</a>
+        </div>
+      </div>
+
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Kyoto, Japan</p>
+          <h1 class="slide-title">Temple <em>Trails</em></h1>
+          <p class="slide-sub">Ancient traditions woven through bamboo forests</p>
+          <a href="#destinations" class="btn btn-light">Explore</a>
+        </div>
+      </div>
+
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="slide-content">
+          <p class="slide-tag">New York, USA</p>
+          <h1 class="slide-title">Urban <em>Flavours</em></h1>
+          <p class="slide-sub">A culinary universe in the city that never sleeps</p>
+          <a href="#restaurants" class="btn btn-light">Taste More</a>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="slider-btn prev" id="slider-prev" aria-label="Previous slide">&#8592;</button>
+      <button class="slider-btn next" id="slider-next" aria-label="Next slide">&#8594;</button>
+
+      <div class="slider-dots" role="tablist" aria-label="Slide indicators" id="slider-dots"></div>
+
+      <!-- Progress bar -->
+      <div class="slider-progress" aria-hidden="true"><div class="slider-progress-bar" id="slider-progress-bar"></div></div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ MAIN ═══════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ────────────────── STATS RIBBON ────────────────── -->
+    <div class="stats-ribbon" aria-label="Key statistics">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <strong class="stat-num" data-target="240">0</strong>
+          <span class="stat-label">Destinations</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="1800">0</strong>
+          <span class="stat-label">Restaurants</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="50000">0</strong>
+          <span class="stat-label">Happy Travellers</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <strong class="stat-num" data-target="98">0</strong>
+          <span class="stat-label">% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────── DESTINATIONS ──────────────────── -->
+    <section id="destinations" class="section destinations-section" aria-labelledby="dest-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-eyebrow">Handpicked Escapes</p>
+          <h2 class="section-title" id="dest-heading">Destinations That <em>Captivate</em></h2>
+          <p class="section-desc">Curated experiences for the curious soul — from misty mountain retreats to sunlit coastal hideaways.</p>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="filter-bar" role="search" aria-label="Filter destinations">
+          <div class="search-wrap">
+            <label for="dest-search" class="sr-only">Search destinations</label>
+            <input type="search" id="dest-search" class="search-input" placeholder="Search destinations..." aria-label="Search destinations" autocomplete="off" />
+            <span class="search-icon" aria-hidden="true">⌕</span>
+          </div>
+          <div class="filter-chips" role="group" aria-label="Filter by region">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="europe">Europe</button>
+            <button class="chip" data-filter="asia">Asia</button>
+            <button class="chip" data-filter="americas">Americas</button>
+            <button class="chip" data-filter="oceania">Oceania</button>
+          </div>
+          <div class="sort-wrap">
+            <label for="sort-select" class="sr-only">Sort by</label>
+            <select id="sort-select" class="sort-select" aria-label="Sort destinations">
+              <option value="popular">Most Popular</option>
+              <option value="rating">Highest Rated</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="destinations-grid" id="destinations-grid" role="list" aria-label="Destination cards"></div>
+        <div class="no-results" id="no-results" hidden aria-live="polite">No destinations match your search. Try different keywords.</div>
+
+        <div class="load-more-wrap">
+          <button class="btn btn-outline" id="load-more-dest">Load More Destinations</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────── RESTAURANTS ──────────────────── -->
+    <section id="restaurants" class="section restaurants-section alt-bg" aria-labelledby="rest-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-eyebrow">Culinary Excellence</p>
+          <h2 class="section-title" id="rest-heading">Dining Beyond <em>Ordinary</em></h2>
+          <p class="section-desc">From intimate bistros to rooftop dining under the stars — every meal tells a story.</p>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-wrap">
+            <label for="rest-search" class="sr-only">Search restaurants</label>
+            <input type="search" id="rest-search" class="search-input" placeholder="Search cuisine or location..." autocomplete="off" />
+            <span class="search-icon" aria-hidden="true">⌕</span>
+          </div>
+          <div class="filter-chips" role="group" aria-label="Filter by cuisine">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="italian">Italian</button>
+            <button class="chip" data-filter="japanese">Japanese</button>
+            <button class="chip" data-filter="french">French</button>
+            <button class="chip" data-filter="mediterranean">Mediterranean</button>
+          </div>
+        </div>
+
+        <div class="restaurants-grid" id="restaurants-grid" role="list"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────────── GALLERY ──────────────────── -->
+    <section id="gallery" class="section gallery-section" aria-labelledby="gallery-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-eyebrow">Visual Journey</p>
+          <h2 class="section-title" id="gallery-heading">Moments in <em>Time</em></h2>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid" role="list" aria-label="Photo gallery"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+      <button class="lightbox-nav lb-prev" id="lb-prev" aria-label="Previous image">&#8592;</button>
+      <div class="lightbox-content">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="" loading="lazy" />
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+      <button class="lightbox-nav lb-next" id="lb-next" aria-label="Next image">&#8594;</button>
+    </div>
+
+    <!-- ─────────────────── REVIEWS ──────────────────── -->
+    <section id="reviews" class="section reviews-section alt-bg" aria-labelledby="reviews-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-eyebrow">Traveller Stories</p>
+          <h2 class="section-title" id="reviews-heading">Voices of <em>Experience</em></h2>
+        </div>
+
+        <div class="reviews-summary" aria-label="Overall rating summary">
+          <div class="overall-score">
+            <span class="big-score">4.9</span>
+            <div class="stars-display" aria-label="4.9 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="review-count">Based on 12,400+ reviews</span>
+          </div>
+          <div class="rating-bars">
+            <div class="rating-bar-row"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:82%" aria-label="82% five star"></div></div><span>82%</span></div>
+            <div class="rating-bar-row"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><span>12%</span></div>
+            <div class="rating-bar-row"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><span>4%</span></div>
+            <div class="rating-bar-row"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
+            <div class="rating-bar-row"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
+          </div>
+        </div>
+
+        <div class="reviews-grid" id="reviews-grid" role="list" aria-label="Customer reviews"></div>
+
+        <div class="write-review">
+          <h3 class="write-review-title">Share Your Experience</h3>
+          <form class="review-form" id="review-form" aria-label="Submit a review" novalidate>
+            <div class="form-row-2">
+              <div class="field-wrap">
+                <label for="reviewer-name">Your Name *</label>
+                <input type="text" id="reviewer-name" name="name" required aria-required="true" placeholder="Jane Smith" />
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="field-wrap">
+                <label for="reviewer-place">Destination/Restaurant *</label>
+                <input type="text" id="reviewer-place" name="place" required aria-required="true" placeholder="Where did you visit?" />
+                <span class="field-error" role="alert"></span>
+              </div>
+            </div>
+            <div class="field-wrap">
+              <label>Your Rating *</label>
+              <div class="star-picker" id="star-picker" role="radiogroup" aria-label="Select rating">
+                <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+                <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+                <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+                <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+                <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+              </div>
+              <input type="hidden" id="rating-value" name="rating" value="0" />
+            </div>
+            <div class="field-wrap">
+              <label for="reviewer-comment">Your Review *</label>
+              <textarea id="reviewer-comment" name="comment" rows="4" required aria-required="true" placeholder="Tell us about your experience..."></textarea>
+              <span class="field-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+            <div class="form-success" id="review-success" hidden role="alert">Thank you! Your review has been submitted.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────── MAP ──────────────────── -->
+    <section id="map" class="section map-section" aria-labelledby="map-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-eyebrow">Find Us Everywhere</p>
+          <h2 class="section-title" id="map-heading">Our Global <em>Footprint</em></h2>
+          <p class="section-desc">Explore our curated partners across the world.</p>
+        </div>
+        <div class="map-layout">
+          <div class="map-sidebar">
+            <h3 class="map-sidebar-title">Locations</h3>
+            <ul class="map-location-list" id="map-location-list" role="list"></ul>
+          </div>
+          <div id="leaflet-map" class="leaflet-map" aria-label="Interactive world map" tabindex="0"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────── BOOKING ──────────────────── -->
+    <section id="booking" class="section booking-section" aria-labelledby="booking-heading">
+      <div class="booking-overlay" aria-hidden="true"></div>
+      <div class="section-inner booking-inner">
+        <div class="section-header light-header">
+          <p class="section-eyebrow">Reserve Your Escape</p>
+          <h2 class="section-title" id="booking-heading">Begin Your <em>Journey</em></h2>
+          <p class="section-desc">Every great adventure starts with a single reservation.</p>
+        </div>
+
+        <form class="booking-form" id="booking-form" novalidate aria-label="Booking form">
+          <div class="booking-grid">
+            <div class="field-wrap">
+              <label for="b-type">Experience Type *</label>
+              <select id="b-type" name="type" required aria-required="true">
+                <option value="">Select type...</option>
+                <option value="travel">Travel Package</option>
+                <option value="dining">Fine Dining</option>
+                <option value="combo">Travel + Dining Combo</option>
+              </select>
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-destination">Destination *</label>
+              <input type="text" id="b-destination" name="destination" required aria-required="true" placeholder="Where would you like to go?" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-checkin">Check-in Date *</label>
+              <input type="date" id="b-checkin" name="checkin" required aria-required="true" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-checkout">Check-out Date *</label>
+              <input type="date" id="b-checkout" name="checkout" required aria-required="true" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-guests">Number of Guests *</label>
+              <div class="guests-input">
+                <button type="button" class="guests-btn" id="guests-minus" aria-label="Decrease guests">−</button>
+                <input type="number" id="b-guests" name="guests" value="2" min="1" max="20" readonly aria-label="Number of guests" />
+                <button type="button" class="guests-btn" id="guests-plus" aria-label="Increase guests">+</button>
+              </div>
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-name">Full Name *</label>
+              <input type="text" id="b-name" name="fullname" required aria-required="true" placeholder="Your full name" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-email">Email Address *</label>
+              <input type="email" id="b-email" name="email" required aria-required="true" placeholder="your@email.com" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap">
+              <label for="b-phone">Phone Number</label>
+              <input type="tel" id="b-phone" name="phone" placeholder="+1 (555) 000-0000" pattern="[\+\d\s\(\)\-]+" />
+              <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="field-wrap full-width">
+              <label for="b-requests">Special Requests</label>
+              <textarea id="b-requests" name="requests" rows="3" placeholder="Dietary requirements, accessibility needs, or anything else..."></textarea>
+            </div>
+
+            <div class="field-wrap full-width">
+              <label class="checkbox-label">
+                <input type="checkbox" id="b-terms" name="terms" required aria-required="true" />
+                <span>I agree to the <a href="#" class="inline-link">Terms & Conditions</a> and <a href="#" class="inline-link">Privacy Policy</a> *</span>
+              </label>
+              <span class="field-error" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="booking-submit-row">
+            <div class="price-preview" id="price-preview" aria-live="polite">
+              <span class="price-label">Estimated Total</span>
+              <span class="price-value" id="price-value">—</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large">Confirm Booking</button>
+          </div>
+
+          <div class="form-success" id="booking-success" hidden role="alert">
+            🎉 Booking confirmed! Check your email for details. We can't wait to host you.
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo footer-logo" aria-label="Voyageur home">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Voyageur</span>
+        </a>
+        <p class="footer-tagline">Where every journey feeds the soul.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul role="list">
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#restaurants">Dining</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#map">Map</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Inspired</h4>
+        <p>Get curated travel stories in your inbox.</p>
+        <form class="newsletter-form" aria-label="Newsletter signup" novalidate>
+          <label for="nl-email" class="sr-only">Email address</label>
+          <input type="email" id="nl-email" placeholder="your@email.com" aria-label="Email for newsletter" />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Voyageur. Crafted with care.</p>
+      <div class="social-links" aria-label="Social media links">
+        <a href="#" aria-label="Instagram" class="social-link">𝕀</a>
+        <a href="#" aria-label="Twitter" class="social-link">𝕏</a>
+        <a href="#" aria-label="Facebook" class="social-link">𝔽</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>↑</button>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
